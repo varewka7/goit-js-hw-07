@@ -30,18 +30,30 @@ gallery.addEventListener('click', onGalleryClick);
 
 
 function onGalleryClick(e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    const instance = basicLightbox.create(`<img src= "${e.target.dataset.source}" width="800",height="600">`);
-    instance.show();
+  const instance = basicLightbox.create(`<img src= "${e.target.dataset.source}" width="800",height="600">`);
+  instance.show();
+  
+  document.addEventListener('keydown', fn)
+  
+  function fn(event) {
 
-    document.addEventListener('keydown', event => {
-       
-        if (event.key === "Escape") {
-            instance.close();
-        }
-});
+    event.key === "Escape";
+    instance.close();
+  document.removeEventListener('keydown', fn)
+  }
+  
 }
+
+
+//     document.addEventListener('keydown', event => {
+       
+//         if (event.key === "Escape") {
+//           instance.close();
+//         }
+// });
+
 
  
 
