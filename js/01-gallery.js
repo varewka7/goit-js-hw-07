@@ -9,7 +9,8 @@ gallery.insertAdjacentHTML('beforeend', galleryMarkUp);
 
 gallery.addEventListener('click', onGalleryClick);
 
- function createGalleryItem (galleryItems) {
+function createGalleryItem(galleryItems) {
+
      return galleryItems
          .map(({ preview, original, description }) => {
         return `
@@ -28,9 +29,12 @@ gallery.addEventListener('click', onGalleryClick);
         .join('');
  }
 
-
 function onGalleryClick(e) {
   e.preventDefault();
+
+  if (e.target.nodeName !== "IMG") {
+    return;
+  }
 
   const instance = basicLightbox.create(`<img src= "${e.target.dataset.source}" width="800",height="600">`);
   instance.show();
@@ -38,21 +42,12 @@ function onGalleryClick(e) {
   document.addEventListener('keydown', fn)
   
   function fn(event) {
-
     event.key === "Escape";
     instance.close();
   document.removeEventListener('keydown', fn)
   }
-  
 }
 
-
-//     document.addEventListener('keydown', event => {
-       
-//         if (event.key === "Escape") {
-//           instance.close();
-//         }
-// });
 
 
  

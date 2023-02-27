@@ -7,7 +7,6 @@ const galleryMarkUp = createGalleryItem(galleryItems);
 
 gallery.insertAdjacentHTML('beforeend', galleryMarkUp);
 
-gallery.addEventListener('click', onGalleryClick);
 
  function createGalleryItem (galleryItems) {
      return galleryItems
@@ -23,15 +22,7 @@ gallery.addEventListener('click', onGalleryClick);
         .join('');
  }
 
-gallery.addEventListener('click', onGalleryClick);
-
-
-function onGalleryClick(event) {
-    event.preventDefault();
-
 new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
 });
-
-}
