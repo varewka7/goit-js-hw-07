@@ -42,7 +42,9 @@ function onGalleryClick(e) {
   document.addEventListener('keydown', fn)
   
   function fn(event) {
-    event.key === "Escape";
+    if (event.key !== "Escape") {
+      return; 
+    }
     instance.close();
   document.removeEventListener('keydown', fn)
   }
